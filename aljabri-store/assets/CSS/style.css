@@ -1,0 +1,274 @@
+/* ملف التنسيق الأساسي */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #FF9800;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Tahoma, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* الهيدر */
+.header {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    color: var(--primary-color);
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* المنتجات */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 1rem;
+}
+
+.product-info h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 0.5rem 0;
+}
+
+.product-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    flex: 1;
+}
+
+.btn-secondary {
+    background: #6c757d;
+}
+
+/* الهيرو */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color), #45a049);
+    color: white;
+    padding: 4rem 0;
+    margin: 2rem 0;
+}
+
+.hero .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+/* البارات */
+.announcement-bar {
+    background: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 0;
+    overflow: hidden;
+}
+
+.announcement-content {
+    display: flex;
+    animation: scroll 20s linear infinite;
+    white-space: nowrap;
+}
+
+.announcement-content span {
+    margin: 0 2rem;
+    font-weight: bold;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* الفوتر */
+.footer {
+    background: #333;
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid #555;
+    padding-top: 1rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+/* تنسيق الشعار */
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-image {
+    max-height: 50px;
+    max-width: 200px;
+    object-fit: contain;
+    transition: var(--transition);
+}
+
+.logo-image:hover {
+    transform: scale(1.05);
+}
+
+/* تحسينات للشعار في الهيدر */
+.logo h1 {
+    color: var(--primary-color);
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* تحسينات للشعار في الفوتر */
+.footer-logo {
+    max-height: 40px;
+    max-width: 150px;
+    margin-bottom: 15px;
+}
+/* تنسيق حالة المخزون */
+.product-stock {
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+
+.stock-available {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.stock-low {
+    color: #ffc107;
+    font-weight: 600;
+}
+
+.stock-out {
+    color: #dc3545;
+    font-weight: 600;
+}
+
+/* تحديث بطاقة المنتج */
+.product-info {
+    padding: 25px;
+    position: relative;
+}
+
+.product-card.out-of-stock {
+    opacity: 0.7;
+    position: relative;
+}
+
+.product-card.out-of-stock::after {
+    content: 'غير متوفر';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(220, 53, 69, 0.9);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 3;
+}
+
+.out-of-stock .btn-add-to-cart {
+    background: #6c757d;
+    cursor: not-allowed;
+}
+
+.out-of-stock .btn-add-to-cart:hover {
+    background: #6c757d;
+    transform: none;
+}
